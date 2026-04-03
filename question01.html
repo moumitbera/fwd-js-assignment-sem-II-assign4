@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function check_if_no_zero(x){
+            while(x >0){
+                if(x%10 == 0){
+                    return false;
+                }
+                x = Math.floor(x/10);
+            }
+            return true;
+        }
+
+        function get_sum_digit(x){
+            let sum = 0;
+            while(x > 0){
+                sum = sum + x%10;
+                x = Math.floor(x/10);
+            }
+
+            return sum;
+        }
+
+        function check_prime(x){
+            let flag = true;
+            if (x < 2){
+                return false;
+            }
+            for (let i = 2; i<= x/2; i++){
+                if (x%i == 0){
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+
+        let count = 0;
+        let l = Number(prompt("Enter L: "));
+        let r = Number(prompt("Enter R: "));
+        let k = Number(prompt("Enter K: "));
+
+        for(let x = l; x<=r; x++){
+            if (x%k == 0){
+                let digit_sum = get_sum_digit(x)
+                if (check_prime(digit_sum) && check_if_no_zero(x)){
+                    count++;
+                }
+            }
+        }
+
+        alert(count);
+    </script>
+</body>
+</html>
