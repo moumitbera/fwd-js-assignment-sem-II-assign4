@@ -1,0 +1,51 @@
+<!---
+Roll-Seed Lock
+Take an integer N and the student’s seed value. Repeat the following exactly 3 times:
+• if the current number is even, replace it with current / 2 + seed
+• otherwise, replace it with current * 3 - seed
+After 3 steps:
+• print YES if the final number is between 100 and 999 inclusive, 
+and the middle digit of the final number is equal to seed
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 02</title>
+</head>
+<body>
+    <script>
+
+
+        let n = Number(prompt("Enter the value of N: "));
+        let seed = Number(prompt("Enter the seed value: "));
+        let curr = n;
+
+        for (let i = 0; i<3; i++){
+            if (curr%2 == 0){
+                // current is even
+                curr = curr/2 + seed;
+            } else {
+                curr = curr * 3 - seed
+            }
+        }
+
+        if (curr >= 100 && curr <= 999){
+            if (Math.floor(curr/10)%10 === seed){
+                // check if middle digit === seed
+                alert("YES, " + curr);
+            } else {
+                alet("NO");
+            }
+            
+        } else {
+            alert("NO");
+        }
+        
+
+    </script>
+</body>
+</html>
