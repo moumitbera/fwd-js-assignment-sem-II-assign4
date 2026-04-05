@@ -1,0 +1,54 @@
+<!--
+Contest Score Judge
+A student submits:
+• a correct answers
+• b partially correct answers
+• c wrong answers
+Compute the score:
+score = 3a + b − 2c
+Then apply these rules:
+• if the score becomes negative, replace it with 0
+• if a + b + c > 50, subtract 10
+• final result determines status:
+– PASS if score ≥ 60
+– FAIL otherwise
+Input Format: Take a, b, and c using prompt().
+Output Format: Show the final score and status.
+Constraints: 0 ≤ a, b, c ≤ 100
+Sample Input:
+a = 20, b = 15, c = 4
+Sample Output:
+67, PASS
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution 06</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt("Correct Answers (A): "));
+        let b = Number(prompt("Partially correct answers (B): "));
+        let c = Number(prompt("Wrong answers (C): "));
+
+        let score = (3*a) + b - (2*c);
+        if (score < 0){
+            score = 0;
+        }
+
+        if (a+b+c > 50){
+            score -= 10;
+        }
+
+        if (score >= 60){
+            alert(score + ", PASS");
+        } else {
+            alert(score + ", FAIL");
+        }
+
+    </script>
+</body>
+</html>
