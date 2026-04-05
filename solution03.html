@@ -1,0 +1,58 @@
+<!--
+Mirror Corridor
+Given integers N and K, find the smallest non-negative integer X such that:
+• N + X is a palindrome number
+• N + X is divisible by K
+If no such X exists for 0 ≤ X ≤ 100000, print -1.
+Input Format: Take N and K using prompt().
+Output Format: Print X using alert().
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution 03</title>
+</head>
+<body>
+    <script>
+        function check_palin(x){
+            let org = x;
+            let rev = 0;
+
+            while(x>0){
+                rev = (rev*10)+ x%10;
+                x = Math.floor(x/10);
+            }
+
+            if (org === rev){
+                return true;
+            }
+            return false;
+        }
+
+        function get_sol(n, k){
+            let ret_value = -1;
+            for (let x = 0; x<= 100000; x++){
+                let check_num = n+x;
+                if(check_palin(check_num)){
+                    // palindrome confirmed
+                    if(check_num%k == 0){
+                        // divisble by k
+                        ret_value = x;
+                        break;
+                    }
+                }
+            }
+
+            return ret_value;
+        }
+
+        let n = Number(prompt("Enter the value of N: "));
+        let k = Number(prompt("Enter the value of K: "));
+        alert(""+get_sol(n, k));
+
+    </script>
+</body>
+</html>
