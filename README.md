@@ -13,3 +13,6 @@ Time complexity: effectively O(1) constant (3 times)
 We run the loop 3 times, and follow the rules for everytime based on if curr is even or odd. 
 We finally after 3 loops, verify the middle digit == seed. 
 And output as such.
+
+## Question 03:
+Time Complexity: O(N)
